@@ -1,0 +1,9 @@
+{
+  "marker": "reviewflow-synthetic-courses-v1",
+  "originalMain": "c672ed5b9454a15168d2f2aed98f139a5bbd2d27",
+  "originalTree": "c672ed5b9454a15168d2f2aed98f139a5bbd2d27",
+  "legacyBranches": {
+    "solution/multimodal-review": "b47c4d243e8067f6128140f7a832b3593cd110bf"
+  },
+  "policy": "Synthetic identities and submittedAt only; real GitHub timestamps retained; no grades."
+}
