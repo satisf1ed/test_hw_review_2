@@ -1,4 +1,4 @@
-"""Trusted passing reference for an explicitly synthetic course."""
+"""Synthetic demo submission: demo-llm-alex; not a real account."""
 def budget_context(chunks, budget):
     if type(budget) is not int or budget < 0:
         raise ValueError("budget must be nonnegative integer bytes")
