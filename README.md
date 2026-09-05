@@ -1,19 +1,18 @@
-# HW 2: Leakage-free grouped validation split
+# ДЗ 2: Разбиение по группам без утечки данных
 
-Implement split_by_group(rows, validation_groups), returning (train, validation) lists. Each row has a group field; all rows of a held-out group go only to validation. Missing group raises ValueError. Preserve the relative input order in both lists and never mutate the input. An empty input returns ([], []).
+Реализуйте split_by_group(rows, validation_groups), возвращающую списки (train, validation). У каждой строки есть поле group; все строки группы, выделенной для валидации, должны попадать только в validation. Отсутствие group должно приводить к ValueError. Сохраняйте относительный порядок входных строк в обоих списках и не изменяйте входные данные. Для пустого ввода верните ([], []).
 
-Use Python 3 standard library only. Edit solution.py; do not change the trusted tests. Run python -m unittest discover -s tests -v in the offline sandbox. Add a short SUBMISSION.md describing the implementation and limitations. The base contains a passing reference implementation for this explicitly synthetic course.
+Используйте только стандартную библиотеку Python 3. Изменяйте solution.py; не изменяйте доверенные тесты. Запускайте python -m unittest discover -s tests -v в изолированной среде без доступа к сети. Добавьте краткий SUBMISSION.md с описанием реализации и ограничений. Базовая ветка содержит эталонную реализацию, проходящую тесты.
 
-## Rubric (10 points; reviewer decides)
+## Критерии (10 баллов; оценку выставляет проверяющий)
 
-- Hold out complete groups without leakage (4): 4: all core requirements hold; 2: main path works with gaps; 0: core behavior absent or incorrect.
-- Stable order, missing-group validation, and purity (4): 4: boundary and invalid-input requirements hold; 2: some cases handled; 0: no reliable handling. Cite concrete cases.
-- Readable implementation and evidence (2): 2: concise, reproducible explanation with limitations; 1: partial explanation; 0: absent or misleading. Test counts are evidence, not a grade.
+- Выделение целых групп без утечки данных (4): 4: выполнены все основные требования; 2: основной сценарий работает с недочётами; 0: основное поведение отсутствует или некорректно.
+- Стабильный порядок, проверка наличия группы и неизменность входных данных (4): 4: выполнены требования к граничным случаям и некорректным входным данным; 2: обработана часть случаев; 0: надёжная обработка отсутствует. Приведите конкретные примеры.
+- Читаемая реализация и обоснование (2): 2: краткое, воспроизводимое объяснение с указанием ограничений; 1: частичное объяснение; 0: объяснение отсутствует или вводит в заблуждение. Число пройденных тестов служит свидетельством, а не оценкой.
 
-Submission deadline (simulated): 2026-08-14T18:00:00Z
-Review deadline (simulated): 2026-08-17T18:00:00.000Z
+Срок сдачи: 2026-08-14T18:00:00Z
+Срок проверки: 2026-08-17T18:00:00.000Z
 
-## Synthetic course
+## Сдача решения
 
-reviewflow-synthetic-courses-v1. All identities and submission dates are simulations, not real students.
-Submit solutions/hw_2/<slug> into hw_2, never main.
+Отправляйте solutions/hw_2/<slug> в hw_2, а не в main. Правила курса и техническая история находятся в main/.reviewflow/course.json и main/.reviewflow/provenance.json.
