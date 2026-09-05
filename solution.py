@@ -1,4 +1,4 @@
-"""Trusted passing reference for an explicitly synthetic course."""
+"""Synthetic demo submission: demo-llm-blair; not a real account."""
 def retrieval_metrics(ranked, relevant, k):
     if type(k) is not int or k < 1:
         raise ValueError("k must be a positive integer")
