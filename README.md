@@ -1,19 +1,18 @@
-# HW 1: Deterministic text preprocessing
+# ДЗ 1: Детерминированная предобработка текста
 
-Implement tokenize(text, stopwords=()). Casefold the text, extract contiguous ASCII [a-z0-9]+ tokens, remove case-insensitive stopwords, and preserve order and duplicates. Punctuation is a separator. Empty input returns []. No external tokenizer or model download.
+Реализуйте tokenize(text, stopwords=()). Примените casefold к тексту, выделите непрерывные ASCII-токены по шаблону [a-z0-9]+, удалите стоп-слова без учёта регистра и сохраните порядок и повторы. Знаки пунктуации служат разделителями. Для пустого ввода верните []. Не используйте внешний токенизатор и не загружайте модели.
 
-Use Python 3 standard library only. Edit solution.py; do not change the trusted tests. Run python -m unittest discover -s tests -v in the offline sandbox. Add a short SUBMISSION.md describing the implementation and limitations. The base contains a passing reference implementation for this explicitly synthetic course.
+Используйте только стандартную библиотеку Python 3. Изменяйте solution.py; не изменяйте доверенные тесты. Запускайте python -m unittest discover -s tests -v в изолированной среде без доступа к сети. Добавьте краткий SUBMISSION.md с описанием реализации и ограничений. Базовая ветка содержит эталонную реализацию, проходящую тесты.
 
-## Rubric (10 points; reviewer decides)
+## Критерии (10 баллов; оценку выставляет проверяющий)
 
-- Deterministic token boundaries and order (4): 4: all core requirements hold; 2: main path works with gaps; 0: core behavior absent or incorrect.
-- Case normalization, digits, and stopword filtering (4): 4: boundary and invalid-input requirements hold; 2: some cases handled; 0: no reliable handling. Cite concrete cases.
-- Readable implementation and evidence (2): 2: concise, reproducible explanation with limitations; 1: partial explanation; 0: absent or misleading. Test counts are evidence, not a grade.
+- Детерминированные границы и порядок токенов (4): 4: выполнены все основные требования; 2: основной сценарий работает с недочётами; 0: основное поведение отсутствует или некорректно.
+- Нормализация регистра, цифры и фильтрация стоп-слов (4): 4: выполнены требования к граничным случаям и некорректным входным данным; 2: обработана часть случаев; 0: надёжная обработка отсутствует. Приведите конкретные примеры.
+- Читаемая реализация и обоснование (2): 2: краткое, воспроизводимое объяснение с указанием ограничений; 1: частичное объяснение; 0: объяснение отсутствует или вводит в заблуждение. Число пройденных тестов служит свидетельством, а не оценкой.
 
-Submission deadline (simulated): 2026-08-07T18:00:00Z
-Review deadline (simulated): 2026-08-10T18:00:00.000Z
+Срок сдачи: 2026-08-07T18:00:00Z
+Срок проверки: 2026-08-10T18:00:00.000Z
 
-## Synthetic course
+## Сдача решения
 
-reviewflow-synthetic-courses-v1. All identities and submission dates are simulations, not real students.
-Submit solutions/hw_1/<slug> into hw_1, never main.
+Отправляйте solutions/hw_1/<slug> в hw_1, а не в main. Правила курса и техническая история находятся в main/.reviewflow/course.json и main/.reviewflow/provenance.json.
