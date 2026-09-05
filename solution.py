@@ -1,4 +1,4 @@
-"""Trusted passing reference for an explicitly synthetic course."""
+"""Synthetic demo submission: demo-llm-blair; not a real account."""
 import re
 
 
