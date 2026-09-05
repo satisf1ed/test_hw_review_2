@@ -1,19 +1,18 @@
-# HW 4: UTF-8 context packing under a byte budget
+# ДЗ 4: Упаковка контекста UTF-8 с ограничением в байтах
 
-Implement budget_context(chunks, budget) for a list of nonempty strings. Return the longest ordered prefix of whole chunks joined by one newline that fits within budget UTF-8 bytes, including separators. Stop at the first chunk that does not fit; never skip or truncate chunks. Empty input returns an empty string. budget must be a nonnegative int, not bool, otherwise ValueError. This is a byte limit, not a tokenizer estimate.
+Реализуйте budget_context(chunks, budget) для списка непустых строк. Верните самый длинный начальный фрагмент списка из целых блоков в исходном порядке, соединённых одним переводом строки, который укладывается в budget байт UTF-8 с учётом разделителей. Остановитесь на первом блоке, который не помещается; не пропускайте и не обрезайте блоки. Для пустого ввода верните пустую строку. budget должен быть неотрицательным int, но не bool, иначе ValueError. Это ограничение в байтах, а не оценка токенизатора.
 
-Use Python 3 standard library only. Edit solution.py; do not change the trusted tests. Run python -m unittest discover -s tests -v in the offline sandbox. Add a short SUBMISSION.md describing the implementation and limitations. The base contains a passing reference implementation for this explicitly synthetic course.
+Используйте только стандартную библиотеку Python 3. Изменяйте solution.py; не изменяйте доверенные тесты. Запускайте python -m unittest discover -s tests -v в изолированной среде без доступа к сети. Добавьте краткий SUBMISSION.md с описанием реализации и ограничений. Базовая ветка содержит эталонную реализацию, проходящую тесты.
 
-## Rubric (10 points; reviewer decides)
+## Критерии (10 баллов; оценку выставляет проверяющий)
 
-- Whole-chunk ordered prefix and exact budget (4): 4: all core requirements hold; 2: main path works with gaps; 0: core behavior absent or incorrect.
-- Count UTF-8 bytes and newline separators (4): 4: boundary and invalid-input requirements hold; 2: some cases handled; 0: no reliable handling. Cite concrete cases.
-- Readable implementation and evidence (2): 2: concise, reproducible explanation with limitations; 1: partial explanation; 0: absent or misleading. Test counts are evidence, not a grade.
+- Начальная последовательность целых блоков и точное соблюдение лимита (4): 4: выполнены все основные требования; 2: основной сценарий работает с недочётами; 0: основное поведение отсутствует или некорректно.
+- Подсчёт байтов UTF-8 и разделителей строк (4): 4: выполнены требования к граничным случаям и некорректным входным данным; 2: обработана часть случаев; 0: надёжная обработка отсутствует. Приведите конкретные примеры.
+- Читаемая реализация и обоснование (2): 2: краткое, воспроизводимое объяснение с указанием ограничений; 1: частичное объяснение; 0: объяснение отсутствует или вводит в заблуждение. Число пройденных тестов служит свидетельством, а не оценкой.
 
-Submission deadline (simulated): 2026-08-28T18:00:00Z
-Review deadline (simulated): 2026-08-31T18:00:00.000Z
+Срок сдачи: 2026-08-28T18:00:00Z
+Срок проверки: 2026-08-31T18:00:00.000Z
 
-## Synthetic course
+## Сдача решения
 
-reviewflow-synthetic-courses-v1. All identities and submission dates are simulations, not real students.
-Submit solutions/hw_4/<slug> into hw_4, never main.
+Отправляйте solutions/hw_4/<slug> в hw_4, а не в main. Правила курса и техническая история находятся в main/.reviewflow/course.json и main/.reviewflow/provenance.json.
