@@ -1,5 +1,5 @@
 {
-  "course": "Data and LLM Engineering: Reproducible Evaluation",
+  "course": "Инженерия данных и LLM: воспроизводимая оценка",
   "demo": true,
   "roster": [
     "demo-llm-alex",
@@ -11,112 +11,112 @@
   "homeworks": [
     {
       "id": 1,
-      "title": "Deterministic text preprocessing",
-      "assignment": "# HW 1: Deterministic text preprocessing\n\nImplement tokenize(text, stopwords=()). Casefold the text, extract contiguous ASCII [a-z0-9]+ tokens, remove case-insensitive stopwords, and preserve order and duplicates. Punctuation is a separator. Empty input returns []. No external tokenizer or model download.\n\nUse Python 3 standard library only. Edit solution.py; do not change the trusted tests. Run python -m unittest discover -s tests -v in the offline sandbox. Add a short SUBMISSION.md describing the implementation and limitations. The base contains a passing reference implementation for this explicitly synthetic course.\n\n## Rubric (10 points; reviewer decides)\n\n- Deterministic token boundaries and order (4): 4: all core requirements hold; 2: main path works with gaps; 0: core behavior absent or incorrect.\n- Case normalization, digits, and stopword filtering (4): 4: boundary and invalid-input requirements hold; 2: some cases handled; 0: no reliable handling. Cite concrete cases.\n- Readable implementation and evidence (2): 2: concise, reproducible explanation with limitations; 1: partial explanation; 0: absent or misleading. Test counts are evidence, not a grade.\n\nSubmission deadline (simulated): 2026-08-07T18:00:00Z\nReview deadline (simulated): 2026-08-10T18:00:00.000Z\n",
+      "title": "Детерминированная предобработка текста",
+      "assignment": "# ДЗ 1: Детерминированная предобработка текста\n\nРеализуйте tokenize(text, stopwords=()). Примените casefold к тексту, выделите непрерывные ASCII-токены по шаблону [a-z0-9]+, удалите стоп-слова без учёта регистра и сохраните порядок и повторы. Знаки пунктуации служат разделителями. Для пустого ввода верните []. Не используйте внешний токенизатор и не загружайте модели.\n\nИспользуйте только стандартную библиотеку Python 3. Изменяйте solution.py; не изменяйте доверенные тесты. Запускайте python -m unittest discover -s tests -v в изолированной среде без доступа к сети. Добавьте краткий SUBMISSION.md с описанием реализации и ограничений. Базовая ветка содержит эталонную реализацию, проходящую тесты.\n\n## Критерии (10 баллов; оценку выставляет проверяющий)\n\n- Детерминированные границы и порядок токенов (4): 4: выполнены все основные требования; 2: основной сценарий работает с недочётами; 0: основное поведение отсутствует или некорректно.\n- Нормализация регистра, цифры и фильтрация стоп-слов (4): 4: выполнены требования к граничным случаям и некорректным входным данным; 2: обработана часть случаев; 0: надёжная обработка отсутствует. Приведите конкретные примеры.\n- Читаемая реализация и обоснование (2): 2: краткое, воспроизводимое объяснение с указанием ограничений; 1: частичное объяснение; 0: объяснение отсутствует или вводит в заблуждение. Число пройденных тестов служит свидетельством, а не оценкой.\n\nСрок сдачи: 2026-08-07T18:00:00Z\nСрок проверки: 2026-08-10T18:00:00.000Z\n",
       "submissionDeadline": "2026-08-07T18:00:00Z",
       "reviewDeadline": "2026-08-10T18:00:00.000Z",
       "executionProfile": "python-unittest",
       "criteria": [
         {
           "id": "core",
-          "title": "Deterministic token boundaries and order",
-          "description": "4: all core requirements hold; 2: main path works with gaps; 0: core behavior absent or incorrect.",
+          "title": "Детерминированные границы и порядок токенов",
+          "description": "4: выполнены все основные требования; 2: основной сценарий работает с недочётами; 0: основное поведение отсутствует или некорректно.",
           "maxScore": 4
         },
         {
           "id": "edges",
-          "title": "Case normalization, digits, and stopword filtering",
-          "description": "4: boundary and invalid-input requirements hold; 2: some cases handled; 0: no reliable handling. Cite concrete cases.",
+          "title": "Нормализация регистра, цифры и фильтрация стоп-слов",
+          "description": "4: выполнены требования к граничным случаям и некорректным входным данным; 2: обработана часть случаев; 0: надёжная обработка отсутствует. Приведите конкретные примеры.",
           "maxScore": 4
         },
         {
           "id": "reasoning",
-          "title": "Readable implementation and evidence",
-          "description": "2: concise, reproducible explanation with limitations; 1: partial explanation; 0: absent or misleading. Test counts are evidence, not a grade.",
+          "title": "Читаемая реализация и обоснование",
+          "description": "2: краткое, воспроизводимое объяснение с указанием ограничений; 1: частичное объяснение; 0: объяснение отсутствует или вводит в заблуждение. Число пройденных тестов служит свидетельством, а не оценкой.",
           "maxScore": 2
         }
       ]
     },
     {
       "id": 2,
-      "title": "Leakage-free grouped validation split",
-      "assignment": "# HW 2: Leakage-free grouped validation split\n\nImplement split_by_group(rows, validation_groups), returning (train, validation) lists. Each row has a group field; all rows of a held-out group go only to validation. Missing group raises ValueError. Preserve the relative input order in both lists and never mutate the input. An empty input returns ([], []).\n\nUse Python 3 standard library only. Edit solution.py; do not change the trusted tests. Run python -m unittest discover -s tests -v in the offline sandbox. Add a short SUBMISSION.md describing the implementation and limitations. The base contains a passing reference implementation for this explicitly synthetic course.\n\n## Rubric (10 points; reviewer decides)\n\n- Hold out complete groups without leakage (4): 4: all core requirements hold; 2: main path works with gaps; 0: core behavior absent or incorrect.\n- Stable order, missing-group validation, and purity (4): 4: boundary and invalid-input requirements hold; 2: some cases handled; 0: no reliable handling. Cite concrete cases.\n- Readable implementation and evidence (2): 2: concise, reproducible explanation with limitations; 1: partial explanation; 0: absent or misleading. Test counts are evidence, not a grade.\n\nSubmission deadline (simulated): 2026-08-14T18:00:00Z\nReview deadline (simulated): 2026-08-17T18:00:00.000Z\n",
+      "title": "Разбиение по группам без утечки данных",
+      "assignment": "# ДЗ 2: Разбиение по группам без утечки данных\n\nРеализуйте split_by_group(rows, validation_groups), возвращающую списки (train, validation). У каждой строки есть поле group; все строки группы, выделенной для валидации, должны попадать только в validation. Отсутствие group должно приводить к ValueError. Сохраняйте относительный порядок входных строк в обоих списках и не изменяйте входные данные. Для пустого ввода верните ([], []).\n\nИспользуйте только стандартную библиотеку Python 3. Изменяйте solution.py; не изменяйте доверенные тесты. Запускайте python -m unittest discover -s tests -v в изолированной среде без доступа к сети. Добавьте краткий SUBMISSION.md с описанием реализации и ограничений. Базовая ветка содержит эталонную реализацию, проходящую тесты.\n\n## Критерии (10 баллов; оценку выставляет проверяющий)\n\n- Выделение целых групп без утечки данных (4): 4: выполнены все основные требования; 2: основной сценарий работает с недочётами; 0: основное поведение отсутствует или некорректно.\n- Стабильный порядок, проверка наличия группы и неизменность входных данных (4): 4: выполнены требования к граничным случаям и некорректным входным данным; 2: обработана часть случаев; 0: надёжная обработка отсутствует. Приведите конкретные примеры.\n- Читаемая реализация и обоснование (2): 2: краткое, воспроизводимое объяснение с указанием ограничений; 1: частичное объяснение; 0: объяснение отсутствует или вводит в заблуждение. Число пройденных тестов служит свидетельством, а не оценкой.\n\nСрок сдачи: 2026-08-14T18:00:00Z\nСрок проверки: 2026-08-17T18:00:00.000Z\n",
       "submissionDeadline": "2026-08-14T18:00:00Z",
       "reviewDeadline": "2026-08-17T18:00:00.000Z",
       "executionProfile": "python-unittest",
       "criteria": [
         {
           "id": "core",
-          "title": "Hold out complete groups without leakage",
-          "description": "4: all core requirements hold; 2: main path works with gaps; 0: core behavior absent or incorrect.",
+          "title": "Выделение целых групп без утечки данных",
+          "description": "4: выполнены все основные требования; 2: основной сценарий работает с недочётами; 0: основное поведение отсутствует или некорректно.",
           "maxScore": 4
         },
         {
           "id": "edges",
-          "title": "Stable order, missing-group validation, and purity",
-          "description": "4: boundary and invalid-input requirements hold; 2: some cases handled; 0: no reliable handling. Cite concrete cases.",
+          "title": "Стабильный порядок, проверка наличия группы и неизменность входных данных",
+          "description": "4: выполнены требования к граничным случаям и некорректным входным данным; 2: обработана часть случаев; 0: надёжная обработка отсутствует. Приведите конкретные примеры.",
           "maxScore": 4
         },
         {
           "id": "reasoning",
-          "title": "Readable implementation and evidence",
-          "description": "2: concise, reproducible explanation with limitations; 1: partial explanation; 0: absent or misleading. Test counts are evidence, not a grade.",
+          "title": "Читаемая реализация и обоснование",
+          "description": "2: краткое, воспроизводимое объяснение с указанием ограничений; 1: частичное объяснение; 0: объяснение отсутствует или вводит в заблуждение. Число пройденных тестов служит свидетельством, а не оценкой.",
           "maxScore": 2
         }
       ]
     },
     {
       "id": 3,
-      "title": "Retrieval recall and reciprocal rank",
-      "assignment": "# HW 3: Retrieval recall and reciprocal rank\n\nImplement retrieval_metrics(ranked, relevant, k). Return {recall, mrr} within the first k ranked ids. Recall is unique relevant ids found divided by all unique relevant ids; MRR is 1 divided by the 1-based rank of the first relevant hit. Duplicates must not inflate recall. Empty relevance or no hit gives zero. k must be an int >= 1, not bool, otherwise ValueError.\n\nUse Python 3 standard library only. Edit solution.py; do not change the trusted tests. Run python -m unittest discover -s tests -v in the offline sandbox. Add a short SUBMISSION.md describing the implementation and limitations. The base contains a passing reference implementation for this explicitly synthetic course.\n\n## Rubric (10 points; reviewer decides)\n\n- Correct recall and first-hit reciprocal rank (4): 4: all core requirements hold; 2: main path works with gaps; 0: core behavior absent or incorrect.\n- Respect cutoff, deduplicate hits, and validate k (4): 4: boundary and invalid-input requirements hold; 2: some cases handled; 0: no reliable handling. Cite concrete cases.\n- Readable implementation and evidence (2): 2: concise, reproducible explanation with limitations; 1: partial explanation; 0: absent or misleading. Test counts are evidence, not a grade.\n\nSubmission deadline (simulated): 2026-08-21T18:00:00Z\nReview deadline (simulated): 2026-08-24T18:00:00.000Z\n",
+      "title": "Полнота поиска и обратный ранг первого попадания",
+      "assignment": "# ДЗ 3: Полнота поиска и обратный ранг первого попадания\n\nРеализуйте retrieval_metrics(ranked, relevant, k). Верните {recall, mrr} для первых k идентификаторов в ranked. Recall равен числу найденных уникальных релевантных идентификаторов, делённому на число всех уникальных релевантных идентификаторов; MRR равен 1, делённой на позицию первого релевантного попадания при нумерации с 1. Повторы не должны завышать recall. При пустом наборе релевантных идентификаторов или отсутствии попаданий значения равны нулю. k должен иметь тип int и быть >= 1, но не bool, иначе ValueError.\n\nИспользуйте только стандартную библиотеку Python 3. Изменяйте solution.py; не изменяйте доверенные тесты. Запускайте python -m unittest discover -s tests -v в изолированной среде без доступа к сети. Добавьте краткий SUBMISSION.md с описанием реализации и ограничений. Базовая ветка содержит эталонную реализацию, проходящую тесты.\n\n## Критерии (10 баллов; оценку выставляет проверяющий)\n\n- Корректная полнота поиска и обратный ранг первого попадания (4): 4: выполнены все основные требования; 2: основной сценарий работает с недочётами; 0: основное поведение отсутствует или некорректно.\n- Соблюдение ограничения выдачи, учёт уникальных попаданий и проверка k (4): 4: выполнены требования к граничным случаям и некорректным входным данным; 2: обработана часть случаев; 0: надёжная обработка отсутствует. Приведите конкретные примеры.\n- Читаемая реализация и обоснование (2): 2: краткое, воспроизводимое объяснение с указанием ограничений; 1: частичное объяснение; 0: объяснение отсутствует или вводит в заблуждение. Число пройденных тестов служит свидетельством, а не оценкой.\n\nСрок сдачи: 2026-08-21T18:00:00Z\nСрок проверки: 2026-08-24T18:00:00.000Z\n",
       "submissionDeadline": "2026-08-21T18:00:00Z",
       "reviewDeadline": "2026-08-24T18:00:00.000Z",
       "executionProfile": "python-unittest",
       "criteria": [
         {
           "id": "core",
-          "title": "Correct recall and first-hit reciprocal rank",
-          "description": "4: all core requirements hold; 2: main path works with gaps; 0: core behavior absent or incorrect.",
+          "title": "Корректная полнота поиска и обратный ранг первого попадания",
+          "description": "4: выполнены все основные требования; 2: основной сценарий работает с недочётами; 0: основное поведение отсутствует или некорректно.",
           "maxScore": 4
         },
         {
           "id": "edges",
-          "title": "Respect cutoff, deduplicate hits, and validate k",
-          "description": "4: boundary and invalid-input requirements hold; 2: some cases handled; 0: no reliable handling. Cite concrete cases.",
+          "title": "Соблюдение ограничения выдачи, учёт уникальных попаданий и проверка k",
+          "description": "4: выполнены требования к граничным случаям и некорректным входным данным; 2: обработана часть случаев; 0: надёжная обработка отсутствует. Приведите конкретные примеры.",
           "maxScore": 4
         },
         {
           "id": "reasoning",
-          "title": "Readable implementation and evidence",
-          "description": "2: concise, reproducible explanation with limitations; 1: partial explanation; 0: absent or misleading. Test counts are evidence, not a grade.",
+          "title": "Читаемая реализация и обоснование",
+          "description": "2: краткое, воспроизводимое объяснение с указанием ограничений; 1: частичное объяснение; 0: объяснение отсутствует или вводит в заблуждение. Число пройденных тестов служит свидетельством, а не оценкой.",
           "maxScore": 2
         }
       ]
     },
     {
       "id": 4,
-      "title": "UTF-8 context packing under a byte budget",
-      "assignment": "# HW 4: UTF-8 context packing under a byte budget\n\nImplement budget_context(chunks, budget) for a list of nonempty strings. Return the longest ordered prefix of whole chunks joined by one newline that fits within budget UTF-8 bytes, including separators. Stop at the first chunk that does not fit; never skip or truncate chunks. Empty input returns an empty string. budget must be a nonnegative int, not bool, otherwise ValueError. This is a byte limit, not a tokenizer estimate.\n\nUse Python 3 standard library only. Edit solution.py; do not change the trusted tests. Run python -m unittest discover -s tests -v in the offline sandbox. Add a short SUBMISSION.md describing the implementation and limitations. The base contains a passing reference implementation for this explicitly synthetic course.\n\n## Rubric (10 points; reviewer decides)\n\n- Whole-chunk ordered prefix and exact budget (4): 4: all core requirements hold; 2: main path works with gaps; 0: core behavior absent or incorrect.\n- Count UTF-8 bytes and newline separators (4): 4: boundary and invalid-input requirements hold; 2: some cases handled; 0: no reliable handling. Cite concrete cases.\n- Readable implementation and evidence (2): 2: concise, reproducible explanation with limitations; 1: partial explanation; 0: absent or misleading. Test counts are evidence, not a grade.\n\nSubmission deadline (simulated): 2026-08-28T18:00:00Z\nReview deadline (simulated): 2026-08-31T18:00:00.000Z\n",
+      "title": "Упаковка контекста UTF-8 с ограничением в байтах",
+      "assignment": "# ДЗ 4: Упаковка контекста UTF-8 с ограничением в байтах\n\nРеализуйте budget_context(chunks, budget) для списка непустых строк. Верните самый длинный начальный фрагмент списка из целых блоков в исходном порядке, соединённых одним переводом строки, который укладывается в budget байт UTF-8 с учётом разделителей. Остановитесь на первом блоке, который не помещается; не пропускайте и не обрезайте блоки. Для пустого ввода верните пустую строку. budget должен быть неотрицательным int, но не bool, иначе ValueError. Это ограничение в байтах, а не оценка токенизатора.\n\nИспользуйте только стандартную библиотеку Python 3. Изменяйте solution.py; не изменяйте доверенные тесты. Запускайте python -m unittest discover -s tests -v в изолированной среде без доступа к сети. Добавьте краткий SUBMISSION.md с описанием реализации и ограничений. Базовая ветка содержит эталонную реализацию, проходящую тесты.\n\n## Критерии (10 баллов; оценку выставляет проверяющий)\n\n- Начальная последовательность целых блоков и точное соблюдение лимита (4): 4: выполнены все основные требования; 2: основной сценарий работает с недочётами; 0: основное поведение отсутствует или некорректно.\n- Подсчёт байтов UTF-8 и разделителей строк (4): 4: выполнены требования к граничным случаям и некорректным входным данным; 2: обработана часть случаев; 0: надёжная обработка отсутствует. Приведите конкретные примеры.\n- Читаемая реализация и обоснование (2): 2: краткое, воспроизводимое объяснение с указанием ограничений; 1: частичное объяснение; 0: объяснение отсутствует или вводит в заблуждение. Число пройденных тестов служит свидетельством, а не оценкой.\n\nСрок сдачи: 2026-08-28T18:00:00Z\nСрок проверки: 2026-08-31T18:00:00.000Z\n",
       "submissionDeadline": "2026-08-28T18:00:00Z",
       "reviewDeadline": "2026-08-31T18:00:00.000Z",
       "executionProfile": "python-unittest",
       "criteria": [
         {
           "id": "core",
-          "title": "Whole-chunk ordered prefix and exact budget",
-          "description": "4: all core requirements hold; 2: main path works with gaps; 0: core behavior absent or incorrect.",
+          "title": "Начальная последовательность целых блоков и точное соблюдение лимита",
+          "description": "4: выполнены все основные требования; 2: основной сценарий работает с недочётами; 0: основное поведение отсутствует или некорректно.",
           "maxScore": 4
         },
         {
           "id": "edges",
-          "title": "Count UTF-8 bytes and newline separators",
-          "description": "4: boundary and invalid-input requirements hold; 2: some cases handled; 0: no reliable handling. Cite concrete cases.",
+          "title": "Подсчёт байтов UTF-8 и разделителей строк",
+          "description": "4: выполнены требования к граничным случаям и некорректным входным данным; 2: обработана часть случаев; 0: надёжная обработка отсутствует. Приведите конкретные примеры.",
           "maxScore": 4
         },
         {
           "id": "reasoning",
-          "title": "Readable implementation and evidence",
-          "description": "2: concise, reproducible explanation with limitations; 1: partial explanation; 0: absent or misleading. Test counts are evidence, not a grade.",
+          "title": "Читаемая реализация и обоснование",
+          "description": "2: краткое, воспроизводимое объяснение с указанием ограничений; 1: частичное объяснение; 0: объяснение отсутствует или вводит в заблуждение. Число пройденных тестов служит свидетельством, а не оценкой.",
           "maxScore": 2
         }
       ]
